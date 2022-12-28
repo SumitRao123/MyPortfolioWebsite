@@ -1,7 +1,17 @@
 import React from 'react'
-
+import { motion,useScroll ,useSpring} from 'framer-motion'
 const About = () => {
+  const {scrollYProgress} =  useScroll();
+ const  scaleX = useSpring(scrollYProgress,{
+  stiffness: 100,
+  dumping: 30,
+  restDelta: 0.001,
+ })
   return (
+    <>
+      <motion.div style={{scaleX:scrollYProgress }} className="progress-bar-animate">
+
+      </motion.div>
     <div className="about">
         <h2>About</h2>
         <>
@@ -84,6 +94,7 @@ const About = () => {
         </>
       </div>
 
+    </>
   )
 }
 

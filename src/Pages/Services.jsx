@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-
+import { motion } from 'framer-motion';
 const Services = () => {
   const serviceList = [{
     id : 1,
@@ -21,24 +21,27 @@ const Services = () => {
 ]
 
   return (
+    <motion.div initial={{scaleY:0}} animate={{scaleY:1}} exit={{scaleY:0}} transition={{duration:.2}}>
+
     <div className='services'>
       <h2>Services</h2>
       {
         serviceList.map((currElem)=>{
           {/* const [id,name,imageUrl] =  currElem; */}
           return (
-               <div key={currElem.id}>
+               <motion.div key={currElem.id} whileHover={{scale:1.1,transition:{duration:0.5}}}>
                <Card>
                           <Card.Img variant='top' src={currElem.image}/>
                            <Card.Body>
                              <Card.Title>{currElem.name}</Card.Title>
                            </Card.Body>
                         </Card>
-               </div>
+               </motion.div>
           )
         })
       }
     </div>
+    </motion.div>
   )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Col, Form, FormControl, FormGroup, FormLabel, Row,ListGroup } from 'react-bootstrap'
-
+import { animate, motion } from 'framer-motion'
 const Contact = () => {
   const handleSubmit = (event)=>{
 
   }
   return (
-    <div className='contact'>
+    <motion.div className='contact' initial={{scaleY:0}} animate={{scaleY:1}} exit={{scaleY:0}} transition={{duration:0.2}}>
     
     <h2>Contact</h2>
       <Row>
@@ -64,7 +64,7 @@ const Contact = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </motion.div>
   )
 }
 
